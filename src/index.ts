@@ -1,16 +1,7 @@
-import Sequelize from 'sequelize';
+import express from "express"
 
-const world = 'world';
+const meuServidor = express();
 
-export function hello(who: string = world): void {
-    console.log(`Hello ${who}! `);
-    return;
-}
-
-export function soma(numero1: number,numero2: number): number {
-    return numero1+numero2;
-}
-
-hello('teste')
-
-console.log(soma(10,50));
+meuServidor.listen(4300, () => {
+    console.log('Servidor do Projeto está RODANDO!!');
+});
