@@ -1,33 +1,31 @@
 import { Request, Response } from 'express';
-import Aluno from '../tabelas/aluno_table';
-import AlunoRepository from '../repositorios/aluno_respository';
+import Usuario from '../tabelas/usuario_table';
+import UsuarioRepository from '../repositorios/usuario_respository';
+import usuario_respository from '../repositorios/usuario_respository';
+import { errorHandler } from '../erros/EntityNotFound';
 
-class AddressController {
+class UsuarioController {
   async create(req: Request, res: Response) {
     try {
       const {
-        state,
-        city,
-        district,
-        street,
-        complement,
-        cep
+        cpf,
+        senha,
+        nome,
+        nivelPermissao
       } = req.body;
       
-      const newAddress = new Address({
-        state,
-        city,
-        district,
-        street,
-        complement,
-        cep
+      const novoUsuario = new Usuario({
+        cpf,
+        senha,
+        nome,
+        nivelPermissao
       });
 
-      const data = await addressRepository.create(newAddress);
+      const data = await UsuarioRepository.create(novoUsuario);
 
       return res.status(200).json({
-        status: 'Created!',
-        message: 'This address has been created successfully!',
+        status: 'Criado!',
+        message: 'Usuário!',
         data
       });
     } catch(err: unknown) {
@@ -51,29 +49,24 @@ class AddressController {
   async update(req: Request, res: Response) {
     try {
       const {
-        state,
-        city,
-        district,
-        street,
-        complement,
-        cep
+        cpf,
+        senha,
+        nome,
+        nivelPermissao
       } = req.body;
 
-      const updatedAddress = new Address({
-        id: parseInt(req.params.id),
-        state,
-        city,
-        district,
-        street,
-        complement,
-        cep
+      const usuarioAtualizado = new Usuario({
+        cpf,
+        senha,
+        nome,
+        nivelPermissao
       });
 
-      const data = await addressRepository.update(updatedAddress);
+      const data = await usuario_respository.update(usuarioAtualizado);
 
       return res.status(200).json({
-        status: 'Updated!',
-        message: 'This address has been updated successfully!',
+        status: 'Atualizado!',
+        message: 'Usuário atualizado com sucesso!',
         data
       });
     } catch(err: unknown) {
@@ -96,7 +89,7 @@ class AddressController {
 
   async delete(req: Request, res: Response) {
     try {
-      await addressRepository.delete(parseInt(req.params.id));
+      await usuario_respository.delete(req.params.cpf);
 
       return res.status(200).json({
         status: 'Deleted!',
@@ -122,12 +115,12 @@ class AddressController {
 
   async getAll(req: Request, res: Response) {
     try {
-      const allAddress = await addressRepository.getAll();
+      const todosUsuarios = await usuario_respository.getAll();
 
       return res.status(200).json({
         status: 'Ok!',
-        message: 'This all address data has been fetched successfully!',
-        data: allAddress
+        message: 'Todos usuários no back-end pego!',
+        data: todosUsuarios
       });
     } catch(err: unknown) {
       const {
@@ -149,12 +142,12 @@ class AddressController {
 
   async getById(req: Request, res: Response) {
     try {
-      const oneAddress = await addressRepository.getById(parseInt(req.params.id));
+      const usuario = await usuario_respository.getById(req.params.cpf);
 
       return res.status(200).json({
         status: 'Ok!',
-        message: 'This address data has been fetched successfully!',
-        data: oneAddress
+        message: 'Usuário pego com sucesso do back-end',
+        data: usuario
       });
     } catch(err: unknown) {
       const {
@@ -175,4 +168,4 @@ class AddressController {
   }
 }
 
-export default new AddressController();
+export default new UsuarioController();
