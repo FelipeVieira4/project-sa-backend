@@ -1,0 +1,31 @@
+// - Endereço -
+{
+  "estado": "SC",
+  "cidade": "Joinville",
+  "bairro": "Não Sei",
+  "rua": "Rua dos Pinheiros",
+  "complemento": "Apartamento 101",
+  "cep": "12345678"
+}
+
+// - Tipo de imovel -
+{
+  "descricao": "Teste de tipo de imovel alterado"
+}
+
+// - Imovel -
+{
+  "descricao": "imovel top",
+  "areaMetros": 123.4,
+  "codTipoImovel": 1,
+  "codEndereco": 1
+}
+
+// - Proprietario -
+{
+  "nome": "Felipe Vieira",
+  "CPF": "10616294905",
+  "CNPJ": "TESTEFODASE",
+  "codEndereco": 1,
+  "dataNascimento": "06/03/2024"
+}
