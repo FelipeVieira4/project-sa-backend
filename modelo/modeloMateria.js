@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 const conexao = require('../conexao/conexao');
 const Endereco = require('../endereco/modeloEndereco')
 
-const Usuario = conexao.define('Materias', {
+const Materia = conexao.define('Materias', {
     codMateria: {
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -27,6 +27,6 @@ const Usuario = conexao.define('Materias', {
     timestamps: false
 });
 
-Usuario.sync({ force: false });
+Materia.sync({ force: false });
 
-module.exports = Usuario;
+module.exports = Materia;
