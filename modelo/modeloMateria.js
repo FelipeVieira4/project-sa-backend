@@ -1,6 +1,5 @@
 const Sequelize = require('sequelize');
 const conexao = require('../conexao/conexao');
-const Endereco = require('../endereco/modeloEndereco')
 
 const Materia = conexao.define('Materias', {
     codMateria: {
@@ -14,8 +13,8 @@ const Materia = conexao.define('Materias', {
         allowNull: false
     },
 
-    professor: {
-        type: Sequelize.STRING(150),
+    codProfessor: {
+        type: Sequelize.INTEGER,
         allowNull: false
     
     },
