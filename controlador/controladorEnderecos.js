@@ -20,7 +20,6 @@ router.post('/enderecos', (req, res) => {
         rua: req.body.rua,
         complemento: req.body.complemento,
         cep: req.body.cep,
-        nivelPermissao: req.body.nivelPermissao
     }).then(() => {
         res.send('Endereco cadastrado com sucesso.');
     }).catch((erro) => {
@@ -37,7 +36,6 @@ router.put('/enderecos/:enderecoId', (req, res) => {
         rua: req.body.rua,
         complemento: req.body.complemento,
         cep: req.body.cep,
-        nivelPermissao: req.body.nivelPermissao
     }, {
         where: {
             codEndereco: codigoEndereco

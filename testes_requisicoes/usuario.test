@@ -1,0 +1,8 @@
+{
+  "nome": "João Silva",
+  "CPF": "12345678900",
+  "CNPJ": "12345678000190",
+  "dataNascimento": "1990-05-15",
+  "codEndereco": "123456789",
+  "nivelPermissao": 1
+}

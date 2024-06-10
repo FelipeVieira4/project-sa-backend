@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 const conexao = require('../conexao/conexao');
 const Endereco = require('../endereco/modeloEndereco')
 
-const Sala = conexao.define('Sala', {
+const Sala = conexao.define('Salas', {
     codSala: {
         type: Sequelize.INTEGER,
         allowNull: false,

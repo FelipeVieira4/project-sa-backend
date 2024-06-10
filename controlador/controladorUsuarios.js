@@ -1,54 +1,56 @@
 const express = require('express');
-const Cliente = require('../modelo/modeloUsuario');
+const Usuario = require('../modelo/modeloUsuario'); // Rename to Usuario
 
 const router = express.Router();
-router.get('/cliente', async (req, res) => {
-    const cliente = await Cliente.findAll();
-    res.send(cliente);
+router.get('/usuario', async (req, res) => {
+    const usuarios = await Usuario.findAll(); // Rename to usuarios
+    res.send(usuarios);
 });
 
-router.get('/cliente/:clienteId', async (req, res) => {
-    const codigoCliente = req.params.clienteId;
-    res.json(await Cliente.findByPk(codigoCliente));
+router.get('/usuario/:usuarioId', async (req, res) => {
+    const codigoUsuario = req.params.usuarioId; // Renamed for consistency
+    res.json(await Usuario.findByPk(codigoUsuario)); // Rename to Usuario
 });
 
-router.post('/cliente', (req, res) => {
-    Cliente.create({
+router.post('/usuario', (req, res) => {
+    Usuario.create({
         nome: req.body.nome,
         CPF: req.body.CPF,
         CNPJ: req.body.CNPJ,
         dataNascimento: req.body.dataNascimento,
-        codEndereco: req.body.codEndereco
+        codEndereco: req.body.codEndereco,
+        nivelPermissao: req.body.nivelPermissao
     }).then(() => {
-        res.send('Cliente cadastrado com sucesso.');
+        res.send('Usuário cadastrado com sucesso.'); // Corrected typo here as well
     }).catch((erro) => {
         res.send('Ocorreu um erro: ' + erro);
     });
 });
 
-router.put('/cliente/:clienteId', (req, res) => {
-    const codigoCliente = req.params.clienteId;
-    Cliente.update({
+router.put('/usuario/:usuarioId', (req, res) => {
+    const codigoUsuario = req.params.usuarioId; // Renamed for consistency
+    Usuario.update({
         nome: req.body.nome,
         CPF: req.body.CPF,
         CNPJ: req.body.CNPJ,
         dataNascimento: req.body.dataNascimento,
-        codEndereco: req.body.codEndereco
+        codEndereco: req.body.codEndereco,
+        nivelPermissao: req.body.nivelPermissao
     }, {
         where: {
-            codCliente: codigoCliente
+            codusuario: codigoUsuario // Rename to codigoUsuario
         }
     }).then(() => {
-        res.send('Cliente atualizado com sucesso.');
+        res.send('Usuário atualizado com sucesso.'); // Corrected typo here as well
     }).catch((erro) => {
         res.send('Ocorreu um erro: ' + erro);
     });
 });
 
-router.delete('/cliente/:clienteId', (req, res) => {
-    const codigoCliente = req.params.clienteId;
-    Cliente.destroy({ where: { codCliente: codigoCliente } }).then(() => {
-        res.send('Cliente removido com sucesso.');
+router.delete('/usuario/:usuarioId', (req, res) => {
+    const codigoUsuario = req.params.usuarioId; // Renamed for consistency
+    Usuario.destroy({ where: { codusuario: codigoUsuario } }).then(() => {
+        res.send('Usuário removido com sucesso.'); // Corrected typo here as well
     }).catch((erro) => {
         res.send('Ocorreu um erro: ' + erro);
     });

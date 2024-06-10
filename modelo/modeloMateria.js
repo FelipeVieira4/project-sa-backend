@@ -12,12 +12,6 @@ const Materia = conexao.define('Materias', {
         type: Sequelize.STRING(150),
         allowNull: false
     },
-
-    codProfessor: {
-        type: Sequelize.INTEGER,
-        allowNull: false
-    
-    },
     descricao: {
         type: Sequelize.STRING(150),
         allowNull: false

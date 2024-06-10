@@ -17,7 +17,6 @@ router.post('/materia', (req, res) => {
         codMateria: req.body.codMateria,
         nome: req.body.nome,
         descricao: req.body.descricao,
-        codProfessor: req.body.codProfessoro
     }).then(() => {
         res.send('Materia cadastrado com sucesso.');
     }).catch((erro) => {
@@ -31,7 +30,6 @@ router.put('/materia/:materiaId', (req, res) => {
         codMateria: req.body.codMateria,
         nome: req.body.nome,
         descricao: req.body.descricao,
-        codProfessor: req.body.codProfessor
     }, {
         where: {
             codMateria: codigoMateria

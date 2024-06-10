@@ -9,8 +9,8 @@ meuServidor.use(rotasUsuarios);
 const rotasEndereco=require('./controlador/controladorEnderecos');
 meuServidor.use(rotasEndereco);
 
-const rotasInfoEscolar=require('./controlador/controladorInfoEscolar');
-meuServidor.use(rotasInfoEscolar);
+const rotasEscolar=require('./controlador/controladorEscola');
+meuServidor.use(rotasEscolar);
 
 const rotasMateria=require('./controlador/controladorMateria');
 meuServidor.use(rotasMateria);
