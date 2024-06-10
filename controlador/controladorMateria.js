@@ -14,7 +14,6 @@ router.get('/materia/:materiaId', async (req, res) => {
 
 router.post('/materia', (req, res) => {
     Materia.create({
-        codMateria: req.body.codMateria,
         nome: req.body.nome,
         descricao: req.body.descricao,
     }).then(() => {
@@ -27,7 +26,6 @@ router.post('/materia', (req, res) => {
 router.put('/materia/:materiaId', (req, res) => {
     const codigoMateria = req.params.materiaId;
     Materia.update({
-        codMateria: req.body.codMateria,
         nome: req.body.nome,
         descricao: req.body.descricao,
     }, {

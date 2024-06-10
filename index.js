@@ -15,6 +15,9 @@ meuServidor.use(rotasEscolar);
 const rotasMateria=require('./controlador/controladorMateria');
 meuServidor.use(rotasMateria);
 
+const rotasAulas=require('./controlador/controladorAula');
+meuServidor.use(rotasAulas);
+
 meuServidor.listen(4300, () => {
     console.log('Meu primeiro servidor na porta 4300.');
 });
