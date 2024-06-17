@@ -1,7 +1,8 @@
 const Sequelize = require('sequelize');
 const conexao = require('../conexao/conexao');
 const Materia = require('./modeloMateria');
-const Usuario = require('./modeloUsuario')
+const Usuario = require('./modeloUsuario');
+const Turma = require('./modeloTurma')
 
 const Aula = conexao.define('aulas', {
     codAula: {
